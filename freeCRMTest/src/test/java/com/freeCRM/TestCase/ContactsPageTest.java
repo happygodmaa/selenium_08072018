@@ -23,11 +23,13 @@ public class ContactsPageTest extends TestBase {
 	@BeforeMethod
 	public void setup() {
 		initialization();
-		LoginP.ValidateLogin(p.getProperty("user"), p.getProperty("pass"));
+		LoginP= new LoginPage();
+		HomeP= new HomePage();
 		ContactsP= new ContactsPage();
-		
+		LoginP.ValidateLogin(p.getProperty("user"), p.getProperty("pass"));
+		HomeP.VerifyContacts();
 	}
-		
+	
 	@Test()
 	public void OwnerTest() {
 	Assert.assertEquals(ContactsP.ValidateOwner(), "nikhil kumar");
